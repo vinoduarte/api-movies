@@ -5,7 +5,7 @@ class UserController {
     const { name, email, password } = request.body
 
     if(!name) {
-      return AppError("Você não colocou o nome", 102)
+      throw new AppError("Você não colocou o nome")
     }
 
     response.json({ name, email, password })

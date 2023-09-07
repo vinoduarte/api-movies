@@ -1,3 +1,4 @@
+
 class AppError {
   message
   statusCode
