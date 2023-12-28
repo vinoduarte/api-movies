@@ -1,5 +1,5 @@
 import axios from"axios"
 
 export const api = axios.create({
-  baseURL: "http://localhost:9999"
+  baseURL: "https://node-backend-server.onrender.com"
 })
