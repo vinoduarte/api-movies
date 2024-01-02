@@ -1,14 +1,15 @@
 require("dotenv/config")
 require("express-async-errors");
+const cors = require("cors")
 const express = require("express");
 const routes = require("./routes");
 const AppError = require("./utils/AppError");
 const migrationsRun = require("./database/sqlite/migrations");
-const app = express();
 const uploadConfig = require("./configs/upload");
-const cors = require("cors")
-app.use(express.json());
 migrationsRun();
+const app = express();
+app.use(cors())
+app.use(express.json());
 
 app.use("/files", express.static(uploadConfig.UPLOADS_FOLDER));
 
@@ -34,7 +35,3 @@ app.listen(PORT, () => {
   console.log(`O servidor está usando a porta ${PORT}`);
 });
 
-app.use(
-  cors({
-    origin: "https://main--warm-beijinho-f5da9e.netlify.app/",
-}))
