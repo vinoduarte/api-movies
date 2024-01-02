@@ -8,7 +8,9 @@ const migrationsRun = require("./database/sqlite/migrations");
 const uploadConfig = require("./configs/upload");
 migrationsRun();
 const app = express();
-app.use(cors())
+app.use(cors({
+  origin: "https://warm-beijinho-f5da9e.netlify.app"
+}))
 app.use(express.json());
 
 app.use("/files", express.static(uploadConfig.UPLOADS_FOLDER));
