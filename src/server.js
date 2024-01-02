@@ -9,7 +9,7 @@ const uploadConfig = require("./configs/upload");
 const cors = require("cors")
 app.use(
   cors({
-    origin: "https://silly-kashata-7ea882.netlify.app/",
+    origin: "*",
 }))
 app.use(express.json());
 migrationsRun();
