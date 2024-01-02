@@ -36,5 +36,5 @@ app.listen(PORT, () => {
 
 app.use(
   cors({
-    origin: "*",
+    origin: "https://main--warm-beijinho-f5da9e.netlify.app/",
 }))
