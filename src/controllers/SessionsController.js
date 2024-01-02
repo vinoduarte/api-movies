@@ -3,6 +3,7 @@ const AppError = require("../utils/AppError");
 const { compare } = require("bcryptjs");
 const authConfig = require("../configs/auth");
 const { sign } = require("jsonwebtoken");
+const cors = require("cors")
 
 class SessionsController {
   async create(request, response) {
@@ -25,7 +26,7 @@ class SessionsController {
       subject: String(user.id),
       expiresIn,
     });
-
+    
     return response.json({ user, token });
   }
 }

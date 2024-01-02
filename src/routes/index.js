@@ -13,7 +13,7 @@ const routes = Router()
 routes.use("/users", userRoutes)
 routes.use("/notes", notesRoutes)
 routes.use("/tags", tagsRoutes)
-routes.use("/sessions", cors({ origin: "*" }), sessionsRoutes)
+routes.use("/sessions", sessionsRoutes)
 
 
 
