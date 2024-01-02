@@ -7,9 +7,9 @@ const migrationsRun = require("./database/sqlite/migrations");
 const app = express();
 const uploadConfig = require("./configs/upload");
 const cors = require("cors")
-app.use(cors({
-  origin: "*",
-  methods: ["*"],
+app.use(
+  cors({
+    origin: "*",
 }))
 app.use(express.json());
 migrationsRun();
