@@ -26,7 +26,8 @@ class SessionsController {
       subject: String(user.id),
       expiresIn,
     });
-    
+    res.header("Access-Control-Allow-Origin", "YOUR-DOMAIN.TLD"); // update to match the domain you will make the request from
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     return response.json({ user, token });
   }
 }
