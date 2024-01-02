@@ -7,10 +7,6 @@ const migrationsRun = require("./database/sqlite/migrations");
 const app = express();
 const uploadConfig = require("./configs/upload");
 const cors = require("cors")
-app.use(
-  cors({
-    origin: "*",
-}))
 app.use(express.json());
 migrationsRun();
 
@@ -25,7 +21,7 @@ app.use((error, request, response, next) => {
     });
   }
   console.error(error);
-
+  
   return response.status(500).json({
     status: "error",
     message: "Internal server error",
@@ -37,3 +33,8 @@ const PORT = process.env.PORT || 7777;
 app.listen(PORT, () => {
   console.log(`O servidor está usando a porta ${PORT}`);
 });
+
+app.use(
+  cors({
+    origin: "*",
+}))
