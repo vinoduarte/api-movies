@@ -7,14 +7,14 @@ const migrationsRun = require("./database/sqlite/migrations");
 const app = express();
 const uploadConfig = require("./configs/upload");
 const cors = require("cors")
+app.use(cors({
+  origin: "*",
+}))
 app.use(express.json());
 migrationsRun();
 
 app.use("/files", express.static(uploadConfig.UPLOADS_FOLDER));
 
-app.use(cors({
-  origin: "*",
-}))
 app.use(routes);
 app.use((error, request, response, next) => {
   if (error instanceof AppError) {
