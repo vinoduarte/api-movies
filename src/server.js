@@ -9,6 +9,7 @@ const uploadConfig = require("./configs/upload");
 const cors = require("cors")
 app.use(cors({
   origin: "*",
+  methods: ["*"],
 }))
 app.use(express.json());
 migrationsRun();
